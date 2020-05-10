@@ -1,0 +1,53 @@
+// for each \ Range-based for loop example
+#include <iostream>    
+using namespace std;
+
+int main()
+{
+    int mass[5] = { 10,20,30,40,50 };
+
+    //  синтаксис for each
+    //  for each (object var in collection_to_loop)
+    //  {
+    //      // в змінну ''var'' будуть по черзі вибиратись єлементи з
+    //      // колекції ''collection_to_loop''
+    //      // ''in'' говорить про те де шукати тобто в ''collection_to_loop''
+    //  }
+
+    // чомусь Visual Studio тут говорить про синтаксичні помилки (
+    //for each (int number in mass) // не стандартний for each
+    //{
+    //    cout << number << " ";
+    //}
+
+    //---------------------------------------------------------------
+
+    //  синтаксис Range-based for loop
+    //  for(object var : collection_to_loop)
+    //  {
+    //      // в змінну ''var'' будуть по черзі вибиратись єлементи з
+    //      // колекції ''collection_to_loop''
+    //      // '':'' говорить про те де перебирати елементи, тобто в ''collection_to_loop''
+    //  }
+
+    cout << "Range-based for loop: ";
+    for(int number : mass)  // принятий за стандарт (С++11) ''for each'' під назвою ''Range-based for loop''
+    {
+        cout << number << " ";  // такий цикл не змінює масив
+    }
+
+    cout << "\nRange-based for loop using &: ";
+    for (auto &number : mass)  // auto для загальності
+    {
+        number = 1;
+        cout << number << " ";  // такий змінює масив
+    }
+
+    cout << "\nAfter change: ";
+    for (auto& number : mass)  // щоб переконатись що масив змінився 
+    {
+        cout << number << " ";  
+    }
+
+    return 0;
+}
